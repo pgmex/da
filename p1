@@ -1,0 +1,43 @@
+def linearSearch(array, n, x):
+    for i in range(0, n):
+        if array[i] == x:
+            return i
+    return -1
+
+
+arr = []
+m = int(input("Enter array Size: "))
+print("Enter the array elements: ")
+for i in range(m):
+    arr.append(int(input()))
+x = int(input("Enter a search Item:"))
+n = len(arr)
+res = linearSearch(arr, n, x)
+if res == -1:
+    print("Element not found")
+else:
+    print("Element found at index: ", res)
+    
+
+def binarySearch(arr, n, low, high):
+    while low <= high:
+        mid = low + (high - low)//2
+        if arr[mid] == n:
+            return mid
+        elif arr[mid] < n:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+arr = []
+x = int(input("Enter array Size: "))
+print("Enter the array elements: ")
+for i in range(x):
+    arr.append(int(input()))
+n = int(input("Enter a search Item:"))
+res = binarySearch(arr, n, 0, len(arr)-1)
+if res != -1:
+    print("Element is present at index " + str(res))
+else:
+    print("Element not found")
